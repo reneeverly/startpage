@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.flex { display: flex; height: 100%; }
+.third { flex: 3; display: flex; align-items: center; }
+span { text-align: center; width: 100%; display: flex; align-items: center; align-self: stretch; }
+.flex .third span div { width: 100%; text-align: center; font-size: 2em; }
+
+body, html { margin: 0px; padding: 0px; height: 100%; font-family: sans-serif; }
+
+.third:nth-child(1) { background: #74b9ff; }
+.third:nth-child(2) { background: #55efc4; }
+.third:nth-child(3) { background: #a29bfe; }
+
+em { font-style: normal; font-size: 2em; }
+</style>
+</head>
+<body>
+<div class="flex">
+<div class="third"><span><div id="en_field"></div></span></div>
+<div class="third"><span><div id="hb_en_field"></div></span></div>
+<div class="third"><span><div id="uk_field"></div></span></div>
+</div>
+<script type="module" src="hebcal/src/hdate.js"></script>
+<script>
+let now = new Date(Date.now())
+let hnow = new HDate(now)
+
+let options = { year: 'numeric', month: 'long', day: 'numeric' }
+
+let english = now.toLocaleDateString('EN', options)
+let ukrainian = now.toLocaleDateString('UK', options)
+let hebrew_english = hnow.render()
+
+en_field.innerText = english
+uk_field.innerText = ukrainian
+hb_en_field.innerText = hebrew_english
+</script>
+</body>
+</html>

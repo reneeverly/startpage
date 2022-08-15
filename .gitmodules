@@ -1,0 +1,3 @@
+[submodule "hebcal-es6"]
+	path = hebcal-es6
+	url = git@github.com:hebcal/hebcal-es6.git
